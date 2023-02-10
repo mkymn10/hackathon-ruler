@@ -1,13 +1,31 @@
 {
   "manifest_version": 3,
-  "name": "Page Ruler Clone",
-  "version": "1.1",
-  "description": "displays grid in the background and calculates position of a rectangle that user creates with mouse",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "name": "Ruler",
+  "version": "0.1.0",
+  "description": "Measure the height and length of elements on the page",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["./main.js"],
-      "css": ["styles.css"]
+      "run_at": "document_start",
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "main.js"
+      ],
+      "css": [
+        "style.css"
+      ]
     }
-  ]
+  ],
+  "icons": {
+    "16": "ruler-16.png",
+    "32": "ruler-32.png",
+    "48": "ruler-48.png",
+    "128": "ruler-128.png"
+  }
 }
